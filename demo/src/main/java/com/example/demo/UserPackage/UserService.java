@@ -2,8 +2,10 @@ package com.example.demo.UserPackage;
 
 
 import org.springframework.stereotype.Service;
+
 import javax.management.InstanceNotFoundException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,7 +20,6 @@ public class UserService{
     }
 
     public List<User> findAll() {
-
         List<User> list = new ArrayList<>();
         Iterable<User> users = userRepository.findAll();
         users.forEach(list::add);
