@@ -1,15 +1,18 @@
 import React from 'react';
 
 import './App.css';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import Users from './Sites/Users';
+import StartPage from "./Sites/StartPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-          <h2 className="main-rotate">Random</h2>
-          <h2>Things</h2>
-      </header>
-    </div>
+      <BrowserRouter>
+      <Routes>
+          <Route path='/' element={<StartPage/>}/>
+          <Route path='/users' element={<Users/>}/>
+      </Routes>
+      </BrowserRouter>
   );
 }
 

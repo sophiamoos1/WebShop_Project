@@ -1,0 +1,15 @@
+.pagetitle{
+    color: #140340;
+    font-family: "didot";
+}
+
+.userPage{
+    background: rgb(13,51,93);
+    background: linear-gradient(155deg, rgba(13,51,93,1) 0%, rgba(26,80,139,1) 26%, rgba(193,161,211,1) 67%, rgba(255,243,230,1) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    
+}
