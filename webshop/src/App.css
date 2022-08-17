@@ -14,15 +14,29 @@
 }
 
 .App-header {
+
   background: rgb(13,51,93);
   background: linear-gradient(155deg, rgba(13,51,93,1) 0%, rgba(26,80,139,1) 26%, rgba(193,161,211,1) 67%, rgba(255,243,230,1) 100%);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+h2{
+  font-family: "didot";
+  font-size: 170px;
+  margin: 0;
+  writing-mode: vertical-lr;
+  text-align: center;
+  line-height: .9;
+}
+
+.main-rotate{
+  transform: rotate(180deg);
+  color: #140340;
 }
 
 
