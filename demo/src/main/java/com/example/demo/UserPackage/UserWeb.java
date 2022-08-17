@@ -1,9 +1,7 @@
 package com.example.demo.UserPackage;
 
-import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -13,6 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin()
 @RequestMapping("/user")
 public class UserWeb {
     private final UserService service;
@@ -22,7 +21,7 @@ public class UserWeb {
         this.service = service;
     }
 
-    
+
     @GetMapping("/{userId}")
     public ResponseEntity<User> find(@PathVariable("userId") UUID userId) throws InstanceNotFoundException {
         User user = service.find(userId);
@@ -30,7 +29,7 @@ public class UserWeb {
     }
 
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<User>> findAll(){
         List<User> user = service.findAll();
         return ResponseEntity.ok().body(user);
