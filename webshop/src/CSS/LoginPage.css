@@ -1,0 +1,20 @@
+.loginPage{
+    background: rgb(252,255,166);
+    background: linear-gradient(155deg, rgba(252,255,166,1) 0%, rgba(193,255,215,1) 26%, rgba(181,222,255,1) 67%, rgba(202,184,255,1) 100%);
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 48px;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+}
+
+.loginTitle{
+    font-family: "Raleway Thin", sans-serif;
+    letter-spacing: 4px;
+    padding-bottom: 23px;
+    padding-top: 13px;
+    text-align: center;
+}
