@@ -16,7 +16,9 @@ export default function ProductCard({item}:Card){
                         <li><span className="weight">{item?.weight}</span></li>
                         <li><span className="price">{item?.price}$</span></li>
                     </ol>
-                    <button className="button-card">Add to Card</button>
+                    <div className="button-position">
+                        <button className="button-card">Add to Card</button>
+                    </div>
             </div>
         </div>
     )
