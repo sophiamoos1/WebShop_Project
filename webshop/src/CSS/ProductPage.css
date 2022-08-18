@@ -1,0 +1,10 @@
+.productPage{
+    background: rgb(252,255,166);
+    background: linear-gradient(155deg, rgba(252,255,166,1) 0%, rgba(193,255,215,1) 26%, rgba(181,222,255,1) 67%, rgba(202,184,255,1) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}

@@ -1,0 +1,85 @@
+.productCard{
+    background:rgb(245, 245, 245,0.7);
+    width:300px;
+    height: 200px;
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius:20px;
+    transition:0.3s
+}
+
+.productCard:hover{
+    transition:0.3s;
+    box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.2),-8px -8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card img{
+    object-fit:cover;
+    animation:fadeIn 1s;
+    height: 100%;
+    width:100%;
+    border-radius:20px 20px 0px 0px;
+    transition:0.3s;
+}
+
+.cardContent{
+    padding:2vh 1vw 2vh 2vw;
+    font-size:1.3rem;
+    font-family:Arial;
+    color:#345e82;
+}
+
+.cardContent ol{
+    padding:2vh 1vw 3vh 3vw;
+    font-size:1rem;
+    color:black;
+    font-weight:700;
+}
+
+
+
+.button-card {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+.button-card:hover,
+.button-card:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.button-card:hover {
+    transform: translateY(-1px);
+}
+
+.button-card:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
