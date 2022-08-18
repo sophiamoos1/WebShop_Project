@@ -1,6 +1,6 @@
 
 import '../CSS/LoginPage.css';
-import {Formik} from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 import {useNavigate} from "react-router-dom";
 import {LoginService} from "../services/LoginService";
 
@@ -13,7 +13,7 @@ export default function LoginPage(){
                 if(respone == false){
                     console.log(false);
                 }else{
-                    navigate("/home", { replace: true });
+                    navigate("/login", { replace: true });
                 }
             })
             .catch((error) => {
@@ -51,7 +51,7 @@ export default function LoginPage(){
                             const token = login(values.email, values.password);
                             setTimeout(() => {
                                 alert(JSON.stringify(values, null, 2));
-                                navigate("/home");
+                                navigate("/product/all");
                             }, 400);
 
                             {
@@ -61,7 +61,6 @@ export default function LoginPage(){
                     >
                         {({ isSubmitting }) => (
                             <Form>
-
                                 <label>Email</label>
                                 <Field type="email" name="email" />
                                 <ErrorMessage
