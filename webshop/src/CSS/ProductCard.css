@@ -6,7 +6,7 @@
     border-radius:20px;
     transition:0.3s;
     margin-left: 4vh;
-    margin-top: 8vh;
+    margin-top: 10vh;
 
 }
 
@@ -53,9 +53,6 @@ img{
 }
 
 
-.button-position{
-    margin-top:50vh;so
-}
 
 .button-card {
     align-items: center;
@@ -81,9 +78,7 @@ img{
     touch-action: manipulation;
     vertical-align: baseline;
     width: auto;
-    position: fixed;
-  
-
+    
 }
 
 .button-card:hover,
