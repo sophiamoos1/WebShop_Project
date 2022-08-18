@@ -1,12 +1,15 @@
 package com.example.demo.ShopUserPackage;
 
 
+import com.example.demo.CardPackage.Card;
+import com.example.demo.ProductsPackage.Product;
 import com.example.demo.RolesPackage.Role;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -32,7 +35,8 @@ public class ShopUser {
     @ManyToOne
     @JoinColumn(name="role_id", referencedColumnName="id")
     private Role role;
-
+    /*@OneToMany(mappedBy="user")
+    private List<Card> orders;*/
     public ShopUser() {
     }
 
