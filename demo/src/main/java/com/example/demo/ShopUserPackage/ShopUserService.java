@@ -1,6 +1,10 @@
 package com.example.demo.ShopUserPackage;
 
 import com.example.demo.UserPackage.User;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.management.InstanceNotFoundException;
@@ -10,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ShopUserService {
+public class ShopUserService implements UserDetailsService {
     private final ShopUserRepository shopUserRepository;
 
     public ShopUserService(ShopUserRepository shopUserRepository) {
@@ -66,4 +70,19 @@ public class ShopUserService {
         shopUserRepository.deleteById(userId);
     }
 
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        ShopUser user = shopUserRepository.findByEmail(username);
+        if (user == null){
+            throw new UsernameNotFoundException("User not found");
+        }
+        else {
+            Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+            user.getRole().getAuthorities().forEach(authority ->
+                    authorities.add(new SimpleGrantedAuthority(authority.getName())));
+            return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
+        }
+
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.ShopUserPackage;
 
 
+import com.example.demo.RolesPackage.Role;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +29,9 @@ public class ShopUser {
     @NotNull
     @Column(name = "lastname")
     private String lastname;
+    @ManyToOne
+    @JoinColumn(name="role_id", referencedColumnName="id")
+    private Role role;
 
     public ShopUser() {
     }
