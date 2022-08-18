@@ -1,7 +1,25 @@
+import React, {useEffect, useState} from "react";
+import {AllProductsService} from "../services/AllProductsService";
+import '../CSS/ProductPage.css';
+import {User} from "../types/UserType";
+import UserCard from "./UserCard";
+import ProductCard from "./ProductCard";
+import {Product} from "../types/ProductType";
+
 
 export default function ProductPage(){
-return(
-    <div>
+    const[productData, setProductData] = useState([]);
+    useEffect(() => {
+        AllProductsService().getAllProducts().then((data) => {
+            setProductData(data)
+        });
+    }, []);
+
+    return(
+    <div className="productPage">
+        {productData.map((product : Product, i: number) => {
+            return(<ProductCard item={product}/>);
+        })};
 
     </div>
 );
