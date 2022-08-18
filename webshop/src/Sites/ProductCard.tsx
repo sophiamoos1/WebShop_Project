@@ -14,9 +14,9 @@ export default function ProductCard({item}:Card){
                     <ol>
                         <li><span className="description">{item?.description}</span></li>
                         <li><span className="weight">{item?.weight}</span></li>
-                        <li><span className="price">{item?.weight}</span></li>
+                        <li><span className="price">{item?.price}$</span></li>
                     </ol>
-                    <button className="button-card"></button>
+                    <button className="button-card">Add to Card</button>
             </div>
         </div>
     )
