@@ -35,8 +35,8 @@ public class ShopUser {
     @ManyToOne
     @JoinColumn(name="role_id", referencedColumnName="id")
     private Role role;
-    /*@OneToMany(mappedBy="user")
-    private List<Card> orders;*/
+    @OneToMany(mappedBy="user")
+    private List<Card> orders;
     public ShopUser() {
     }
 

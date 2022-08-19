@@ -11,6 +11,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -20,7 +21,7 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int orderId;
-    /*
+
     @ManyToOne
     private ShopUser user;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -29,8 +30,8 @@ public class Card {
                     name = "order_id", referencedColumnName = "orderId"),
             inverseJoinColumns = @JoinColumn(
                     name = "productId", referencedColumnName = "productId"))
-    private List<Product> products;
-*/
+    private Set<Product> products;
+
 
     public Card(){
 

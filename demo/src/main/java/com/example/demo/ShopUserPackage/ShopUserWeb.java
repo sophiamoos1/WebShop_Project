@@ -21,6 +21,12 @@ public class ShopUserWeb {
         this.service = service;
     }
 
+    @GetMapping("/")
+    public ResponseEntity<List<ShopUser>> findAll(){
+        List<ShopUser> user = service.findAll();
+        return ResponseEntity.ok().body(user);
+    }
+
     @GetMapping("/{userId}")
     public ResponseEntity<ShopUser> find(@PathVariable("userId") UUID userId) throws InstanceNotFoundException {
         ShopUser user = service.find(userId);

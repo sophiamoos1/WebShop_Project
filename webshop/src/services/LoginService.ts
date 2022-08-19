@@ -4,7 +4,7 @@ import {defaultAxiosInstance} from "./Api";
 export const LoginService = (api: AxiosInstance = defaultAxiosInstance) => ({
     login(email: string, password: string) {
         return api
-            .post("/login", {
+            .post("/product/all", {
                 email,
                 password,
             })
