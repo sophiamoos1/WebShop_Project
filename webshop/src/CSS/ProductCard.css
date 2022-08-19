@@ -6,8 +6,7 @@
     border-radius:20px;
     transition:0.3s;
     margin-left: 4vh;
-    margin-top: 10vh;
-
+    margin-top: 0;
 }
 
 img{
@@ -63,7 +62,6 @@ img{
     box-sizing: border-box;
     color: #424242;
     cursor: pointer;
-    display: inline-flex;
     font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 16px;
     font-weight: 600;
@@ -78,6 +76,7 @@ img{
     touch-action: manipulation;
     vertical-align: baseline;
     width: auto;
+
     
 }
 
@@ -99,3 +98,4 @@ img{
     color: #424242;
     transform: translateY(0);
 }
+
