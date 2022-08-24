@@ -24,6 +24,7 @@ export default function LoginPage(){
     }
     return(
         <div className="loginPage">
+            <div className="login">
             <h3 className="loginTitle">Login</h3>
             <div className="f1">
                 <div className="f2">
@@ -62,15 +63,15 @@ export default function LoginPage(){
                     >
                         {({ isSubmitting }) => (
                             <Form>
-                                <label>Email</label>
-                                <Field type="email" name="email" />
+                                <label className="subtitle">Email</label>
+                                <Field type="email" name="email" className="email"/>
                                 <ErrorMessage
                                     name="email"
                                     component="div"
                                     className="Errormessage"
                                 />
-                                <label>Password</label>
-                                <Field type="password" name="password" />
+                                <label className="subtitle">Password</label>
+                                <Field type="password" name="password" className="password"/>
                                 <ErrorMessage
                                     name="password"
                                     component="div"
@@ -83,7 +84,7 @@ export default function LoginPage(){
                         )}
                     </Formik>
                 </div>
-            </div>
+            </div> </div>
         </div>
     );
 }
