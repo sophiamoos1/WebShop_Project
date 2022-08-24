@@ -46,7 +46,7 @@ export default function NaviBar(){
                             className="me-2"
                             aria-label="Search"
                         />
-                        <Button variant="outline-success" className="search-button">Search</Button>
+                        <Button className="search-button">Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </Container>
