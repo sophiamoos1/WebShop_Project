@@ -37,6 +37,7 @@ public class ShopUser {
     private Role role;
     @OneToMany(mappedBy="user")
     private List<Card> orders;
+
     public ShopUser() {
     }
 
