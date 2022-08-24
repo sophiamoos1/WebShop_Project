@@ -2,23 +2,23 @@ package com.example.demo.ShopUserPackage;
 
 
 import com.example.demo.CardPackage.Card;
-import com.example.demo.ProductsPackage.Product;
 import com.example.demo.RolesPackage.Role;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "shopper")
-public class ShopUser {
+public class ShopUser implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID userId;
     @NotNull
     @Column(name = "email")
@@ -41,6 +41,10 @@ public class ShopUser {
     public ShopUser() {
     }
 
+    public ShopUser(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
     public ShopUser(UUID userId, String email, String password, String name, String lastname) {
         this.userId = userId;
         this.email = email;
@@ -48,5 +52,23 @@ public class ShopUser {
         this.name = name;
         this.lastname = lastname;
     }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public String getPassword() {return this.password;}
+    @Override
+    public String getUsername() {return this.email;}
+    @Override
+    public boolean isAccountNonExpired() {return true;}
+    @Override
+    public boolean isAccountNonLocked() {return true;}
+    @Override
+    public boolean isCredentialsNonExpired() {return true;}
+    @Override
+    public boolean isEnabled() {return true;}
 }
 
