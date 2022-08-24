@@ -1,7 +1,4 @@
 .productPage{
-    background: rgb(252,255,166);
-    background: linear-gradient(275deg, rgba(252,255,166,1) 0%, rgba(193,255,215,1) 26%, rgba(181,222,255,1) 67%, rgba(202,184,255,1) 100%);
-    width: 192vh;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 48px;
@@ -10,15 +7,43 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
+
+.try{
+    background: rgb(252,255,166);
+    background: linear-gradient(275deg, rgba(252,255,166,1) 0%, rgba(193,255,215,1) 26%, rgba(181,222,255,1) 67%, rgba(202,184,255,1) 100%);
+    width: 100vw;
+}
 .Navi{
-    top: 0;
-    width: 192vh;
+    width: 100vw;
     background:#e76ef0;
-    margin-bottom: 42vh;
+    margin-bottom: 4vh;
+    margin-top: 0vh;
+    align-items: center;
 }
 
-.productsAll{
+.navbar{
+    display: flex;
+}
+.me-2{
+    width: 20vh;
+    height: 5vh;
+    background:rgb(245, 245, 245,0.7);
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2);
+}
 
+
+.nav-title{
+    font-family: 'Raleway',sans-serif; font-size: 22px; font-weight: 800; line-height: 36px;
+    color: white;
+    margin-left: 7vh;
+    margin-top: 3vh;
+}
+
+
+.nav-context{
+    font-family: 'Raleway',sans-serif; font-size: 18px; font-weight: 800; line-height: 36px;
+    color: white;
+    text-decoration: none;
 }
 
 .logo{
@@ -27,7 +52,7 @@
     background-image: url("../Pictures/logo.png");
 }
 
-search-button{
+.search-button{
     background-color: #222;
     border-radius: 4px;
     border-style: none;
@@ -40,9 +65,6 @@ search-button{
     font-weight: 700;
     line-height: 1.5;
     margin: 0;
-    max-width: none;
-    min-height: 44px;
-    min-width: 10px;
     outline: none;
     overflow: hidden;
     padding: 9px 20px 8px;
@@ -52,5 +74,6 @@ search-button{
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 100%;
+    width: 9vh;
+    height: 5vh;
 }
