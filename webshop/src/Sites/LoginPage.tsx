@@ -12,8 +12,9 @@ export default function LoginPage(){
             .then((respone) => {
                 if(respone == false){
                     console.log(false);
-                }else{
                     navigate("/login", { replace: true });
+                }else{
+                    navigate("/product/all");
                 }
             })
             .catch((error) => {

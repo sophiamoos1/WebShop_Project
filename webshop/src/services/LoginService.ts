@@ -1,16 +1,18 @@
 import {AxiosInstance} from "axios";
-import {defaultAxiosInstance} from "./Api";
+import api from "./Api";
 
-export const LoginService = (api: AxiosInstance = defaultAxiosInstance) => ({
-    login(email: string, password: string) {
+export const LoginService = () => ({
+    login: async (email: string, password: string): Promise<boolean> => {
+        const params = new URLSearchParams();
+        params.append('username', email);
+        params.append('password', password);
         return api
-            .post("/product/all", {
-                email,
-                password,
-            })
+            .post("login", params)
             .then((response) => {
-                if (response.data.accessToken) {
-                    localStorage.setItem("accessToken", response.data.accessToken);
+                console.log(response);
+                if (response.headers.access_token) {
+                    console.log(response.headers.access_token);
+                    localStorage.setItem("accessToken", response.headers.access_token);
                     return true;
                 }else{
                     return false;

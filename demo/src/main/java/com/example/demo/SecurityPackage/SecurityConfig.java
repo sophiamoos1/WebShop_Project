@@ -16,7 +16,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
+import javax.servlet.Filter;
 import javax.servlet.http.HttpServletResponse;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
@@ -40,7 +43,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
+    @Bean
+    public Filter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new     UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("*");
+        config.addAllowedHeader("Content-Type");
+        config.addAllowedHeader("x-xsrf-token");
+        config.addAllowedHeader("Authorization");
+        config.addAllowedHeader("Access-Control-Allow-Headers");
+        config.addAllowedHeader("Origin");
+        config.addAllowedHeader("Accept");
+        config.addAllowedHeader("X-Requested-With");
+        config.addAllowedHeader("Access-Control-Request-Method");
+        config.addAllowedHeader("Access-Control-Request-Headers");
+        config.addAllowedMethod("OPTIONS");
+        config.addAllowedMethod("GET");
+        config.addAllowedMethod("PUT");
+        config.addAllowedMethod("POST");
+        config.addAllowedMethod("DELETE");
+        source.registerCorsConfiguration("/**", config);
 
+        return new CorsFilter(source);
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -48,8 +74,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         cors.addAllowedMethod("DELETE");
         cors.addAllowedMethod("POST");
         cors.addAllowedMethod("PUT");
-        cors.addExposedHeader("token");
+        cors.addExposedHeader("access_token");
+        cors.addExposedHeader("Bearer ");
         cors.addAllowedHeader("Authorization");
+        cors.addAllowedMethod("header");
         http.cors().configurationSource(request -> cors);
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);

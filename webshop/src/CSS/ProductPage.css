@@ -1,7 +1,7 @@
 .productPage{
     background: rgb(252,255,166);
     background: linear-gradient(275deg, rgba(252,255,166,1) 0%, rgba(193,255,215,1) 26%, rgba(181,222,255,1) 67%, rgba(202,184,255,1) 100%);
-    width: 180vh;
+    width: 192vh;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 48px;
@@ -11,11 +11,10 @@
     color: white;
 }
 .Navi{
-    margin-top: 0vh;
-    margin-bottom: 70vh;
-    width: 180vh;
-    padding-bottom: 20px;
-    background:#063b8c;
+    top: 0;
+    width: 192vh;
+    background:#e76ef0;
+    margin-bottom: 42vh;
 }
 
 .productsAll{
@@ -26,4 +25,8 @@
     width: 3vh;
     height: 3vh;
     background-image: url("../Pictures/logo.png");
+}
+
+search-button{
+    
 }
