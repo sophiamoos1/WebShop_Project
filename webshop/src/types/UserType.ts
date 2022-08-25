@@ -5,5 +5,4 @@ export interface User{
     lastname: string;
     name: string;
     role: string;
-
 }
