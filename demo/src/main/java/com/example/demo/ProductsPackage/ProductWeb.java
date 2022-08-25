@@ -30,7 +30,7 @@ public class ProductWeb {
     }
 
 
-    @GetMapping("/all")                                             
+    @GetMapping("/all")
     public ResponseEntity<List<Product>> findAll() {
         List<Product> product = service.findAll();
         return ResponseEntity.ok().body(product);

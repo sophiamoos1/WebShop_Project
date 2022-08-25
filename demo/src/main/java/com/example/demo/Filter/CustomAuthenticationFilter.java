@@ -15,6 +15,8 @@ import java.io.IOException;
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenUtil jwtTokenUtil;
+    private String username;
+    private String password;
 
     public CustomAuthenticationFilter(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil){
         this.authenticationManager = authenticationManager;
@@ -23,16 +25,16 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        this.username = request.getParameter("username");
+        this.password = request.getParameter("password");
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
         return authenticationManager.authenticate(authenticationToken);
     }
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
-        String access_token = jwtTokenUtil.generateAccessToken(authentication);
-        String refresh_token = jwtTokenUtil.generateAccessToken(authentication);
+        String access_token = jwtTokenUtil.generateAccessToken(authentication, username, password);
+        String refresh_token = jwtTokenUtil.generateAccessToken(authentication, username, password);
 
         response.setHeader("access_token", access_token);
         response.setHeader("refresh_token", refresh_token);

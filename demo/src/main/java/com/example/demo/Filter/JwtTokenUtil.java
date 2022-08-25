@@ -17,10 +17,12 @@ public class JwtTokenUtil {
     @Value("${app.jwt.secret}")
     private String SECRET_KEY;
 
-    public String generateAccessToken(Authentication authentication) {
+    public String generateAccessToken(Authentication authentication, String email, String password) {
         return Jwts.builder()
                 .setSubject("JWT access token")
                 .setIssuer("Gauss")
+                .setHeaderParam("email", email)
+                .setHeaderParam("password", password)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE_DURATION))
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY)

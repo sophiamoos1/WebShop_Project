@@ -77,7 +77,7 @@ export default function LoginPage(){
                                     component="div"
                                     className="Errormessage"
                                 />
-                                <button className="button-login" type="submit" disabled={isSubmitting}>
+                                <button className="button-submit-login" type="submit" disabled={isSubmitting}>
                                     Submit
                                 </button>
                             </Form>
