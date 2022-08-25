@@ -1,4 +1,4 @@
-import '../CSS/NavBar.css';
+
 
 import * as React from 'react';
 import '../Pictures/logo.png';
@@ -16,7 +16,9 @@ export default function NaviBar(){
     return (
         <div className="navbar-navi">
             <a className="nav-title">Random Things</a>
-            <a className="nav-context"><Link to="/account/17966a6e-1d0e-4fce-a754-badd4540493d">Profile</Link></a>
+            <a className="nav-context"><Link to="/account/17966a6e-1d0e-4fce-a754-badd4540493d" className="Link">Profile</Link></a>
+            <a className="nav-bag"><Link  to="/bag/id" className="Link">Bag </Link></a>
+            <div className="indicator"></div>
         </div>
 
     );

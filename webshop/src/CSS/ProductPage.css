@@ -15,15 +15,21 @@
 }
 .Navi{
     width: 100vw;
-    background:#e76ef0;
+    height: 14vh;
+    background: #131226;
     margin-bottom: 4vh;
-    margin-top: 0vh;
+    margin-top: 1vh;
     align-items: center;
+    right: 0;
+    left: 0;
+    display: table;
+    transform: translateY(-50%);
+    font-size: 28px;
 }
 
-.navbar{
-    display: flex;
-}
+
+
+
 .me-2{
     width: 20vh;
     height: 5vh;
@@ -33,17 +39,120 @@
 
 
 .nav-title{
-    font-family: 'Raleway',sans-serif; font-size: 22px; font-weight: 800; line-height: 36px;
-    color: white;
-    margin-left: 7vh;
-    margin-top: 3vh;
+    width: 33.333%;
+    display: table-cell;
+    text-align: center;
+    color: #969696;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    padding-top: 80px;
+    padding-left: 40px;
+    transition: 0.2s ease color;
+}
+
+.nav-title:before,
+.nav-title:after{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.2s ease transform;
+}
+
+.Link:before,
+.Link:after{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.2s ease transform;
+}
+
+.nav-title:before{
+    top: 0;
+    left: 10px;
+    width: 6px;
+    height: 6px;
+    background-color: #251aed;
+}
+
+.nav-title:after{
+    top: 5px;
+    left: 18px;
+    width: 4px;
+    height: 4px;
+    background-color: #b174f2;
+}
+.Link:before{
+    top: 0;
+    left: 10px;
+    width: 6px;
+    height: 6px;
+    background-color: #251aed;
+}
+
+.Link:after{
+    top: 5px;
+    left: 18px;
+    width: 4px;
+    height: 4px;
+    background-color: #b174f2;
+}
+
+.nav-title:hover{
+    color: #fff;
+}
+.Link:hover{
+    color: #fff;
+}
+.Link:hover:before,
+.Link:hover:after{
+    transform: scale(1);
+}
+
+.nav-title:hover:before,
+.nav-title:hover:after{
+    transform: scale(1);
+
+}
+
+.nav-title:hover ~ .indicator{
+    background: linear-gradient(130deg, #251aed, #b174f2);
+}
+
+.nav-context:hover ~ .indicator{
+    left: 30%;
+    background: linear-gradient(130deg, #251aed, #b174f2);
+}
+
+.indicator {
+    position: absolute;
+    left: 5%;
+    bottom: 15px;
+    width: 50px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: 0.2s ease left;
 }
 
 
 .nav-context{
-    font-family: 'Raleway',sans-serif; font-size: 18px; font-weight: 800; line-height: 36px;
-    color: white;
+    width: 33.333%;
+    display: table-cell;
+    text-align: center;
+    color: #969696;
     text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    padding-top: 22px;
+    padding-left: 30px;
+    transition: 0.2s ease color;
+}
+
+.Link{
+    color: #969696;
 }
 
 .logo{
