@@ -5,4 +5,15 @@ export interface User{
     lastname: string;
     name: string;
     role: string;
+    orders: [
+        orderId:string,
+        products: [
+            productId: string,
+            title : string,
+            description : string,
+            price : string,
+            weight : string,
+            picture : string
+        ]
+    ];
 }

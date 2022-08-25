@@ -1,6 +1,6 @@
 package com.example.demo.ShopUserPackage;
 
-import com.example.demo.UserPackage.User;
+import com.example.demo.CardPackage.Card;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,11 +33,23 @@ public class ShopUserWeb {
         return ResponseEntity.ok(user);
     }
 
+    @GetMapping("/order/{userId}")
+    public ResponseEntity<Card> findOrder(@PathVariable("userId") UUID userId) throws InstanceNotFoundException {
+        Card card = service.findOrder(userId);
+        return ResponseEntity.ok(card);
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<ShopUser> find(@PathVariable("email") String email) throws InstanceNotFoundException {
+        ShopUser user = service.find(email);
+        return ResponseEntity.ok(user);
+    }
+
 
 
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<ShopUser> newUser(@RequestBody ShopUser user) {
+    ResponseEntity<ShopUser> newUser(@RequestBody ShopUser user) throws InstanceNotFoundException{
         ShopUser created = service.create(user);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{userId}")

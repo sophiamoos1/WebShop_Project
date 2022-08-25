@@ -1,0 +1,54 @@
+.account{
+    background: rgb(252,255,166);
+    background: linear-gradient(275deg, rgba(252,255,166,1) 0%, rgba(193,255,215,1) 26%, rgba(181,222,255,1) 67%, rgba(202,184,255,1) 100%);
+    width: 181vh;
+    height: 100vh;
+}
+
+
+.accountTitle{
+    font-family: 'Open Sans Condensed', sans-serif; font-size: 60px; color: black;
+    margin-left: 70vh;
+    margin-top: 0vh;
+}
+
+
+.account-card{
+    height: 70vh;
+    width: 60vh;
+    margin-left: 50vh;
+    margin-top: 9vh;
+    background:rgb(245, 245, 245,0.7);
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.profile{
+    height: 20vh;
+    width: 20vh;
+    margin-left: 20vh;
+}
+
+.accountContent ol li{
+    display:block;
+    transition:0.3s;
+    width:auto;
+    padding-top: 18px;
+}
+
+.accountContent span {
+    padding-left: 30px;
+    color: black;
+}
+.accountContent li{
+    color: #969696;
+    padding-left: 40px;
+}
+
+.accountContent{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.accountContent .email-info{
+    padding-left: 67px;
+}

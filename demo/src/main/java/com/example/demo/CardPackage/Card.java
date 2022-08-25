@@ -5,6 +5,7 @@ import com.example.demo.AuthorityPackage.Authority;
 import com.example.demo.ProductsPackage.Product;
 import com.example.demo.RolesPackage.Role;
 import com.example.demo.ShopUserPackage.ShopUser;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -23,6 +25,7 @@ public class Card {
     private int orderId;
 
     @ManyToOne
+    @JsonBackReference
     private ShopUser user;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -41,5 +44,8 @@ public class Card {
         this.orderId = orderId;
     }
 
+    public Card(ShopUser user){
+        this.user = user;
+    }
 
 }

@@ -18,7 +18,7 @@ import java.util.*;
 @Table(name = "shopper")
 public class ShopUser implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
     @NotNull
     @Column(name = "email")
@@ -35,7 +35,7 @@ public class ShopUser implements UserDetails {
     @ManyToOne
     @JoinColumn(name="role_id", referencedColumnName="id")
     private Role role;
-    @OneToMany(mappedBy="user")
+    @OneToMany(mappedBy="user" , cascade = CascadeType.PERSIST)
     private List<Card> orders;
 
     public ShopUser() {
@@ -51,6 +51,22 @@ public class ShopUser implements UserDetails {
         this.password = password;
         this.name = name;
         this.lastname = lastname;
+    }
+    public ShopUser(String email, String password, String name, String lastname) {
+        this.userId = userId;
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.lastname = lastname;
+    }
+
+    public ShopUser(String email, String password, String name, String lastname, Role role) {
+        this.userId = userId;
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.lastname = lastname;
+        this.role = role;
     }
 
     @Override
